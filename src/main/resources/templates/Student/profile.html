@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/css/profile.css">
+  <title>User Profile</title>
+</head>
+<body>
+<h2>User Profile</h2>
+<p>ID: <span th:text="${userDetails.id}"></span></p>
+<p>Name: <span th:text="${userDetails.name}"></span></p>
+<p>Username: <span th:text="${userDetails.username}"></span></p>
+<p>Email: <span th:text="${userDetails.email}"></span></p>
+<p>Join Date: <span th:text="${userDetails.joinDate}"></span></p>
+<!-- Add more information as needed -->
+
+<a href="/">Go back to home</a>
+</body>
+</html>

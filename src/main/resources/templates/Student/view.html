@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/stView.css">
+    <title>Student List</title>
+    <!-- Add a link to a CSS library for icons, e.g., Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<h1>Student List</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>UserName</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Join Date</th>
+        <th>Actions</th> <!-- Add a new column for actions -->
+        <!-- Add other columns as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="studentResponse : ${studentResponses}">
+        <td th:text="${studentResponse.id}"></td>
+        <td th:text="${studentResponse.name}"></td>
+        <td th:text="${studentResponse.username}"></td>
+        <td th:text="${studentResponse.email}"></td>
+        <td th:text="${studentResponse.joinDate}"></td>
+        <td>
+            <a th:href="@{'/messages?studentId=' + ${studentResponse.id}}" title="Start Chat">
+                <i class="fas fa-comments"></i>
+            </a>
+
+        </td>
+        <!-- Add other columns as needed -->
+    </tr>
+    </tbody>
+</table>
+<br/><br/>
+<a href="/">Go back to home</a>
+</body>
+</html>

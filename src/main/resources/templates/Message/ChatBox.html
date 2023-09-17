@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- ... other head elements ... -->
+  <title>Messages</title>
+  <link rel="stylesheet" href="/css/ChatBox.css"> <!-- Adjust the path accordingly -->
+</head>
+<body>
+<h1>Inbox</h1>
+<div class="chat-header">
+  Sending Messages to <span th:text="${receiverName}"></span>
+</div>
+<div class="chat-container">
+
+  <!-- Loop through all messages and display them -->
+  <!--<div th:each="message : ${allMessages}" class="message"
+       th:class="${message.sender_name == username ? 'sent-message' : 'received-message'}">
+    <span th:text="${message.content}"></span>
+    <div class="timestamp" th:text="${message.time}"></div>
+  </div>-->
+  <div th:each="message : ${allMessages}" class="message"
+       th:class="${message.sender_name == username ? 'sent-message' : 'received-message'}">
+    <div class="profile-picture-container">
+      <img th:if="${message.sender_name != username}" src="/img/dp/john.png" alt="Receiver DP">
+      <img th:if="${message.sender_name == username}" src="/img/dp/saad.png" alt="Sender DP">
+    </div>
+    <!--<div class="profile-picture-container">
+    </div>-->
+    <br/>
+    <span th:text="${message.content}"></span>
+    <br/>
+    <div class="timestamp" th:text="${message.time}"></div>
+  </div>
+
+  <!-- Modified: Send message form with auto-set receiver_id -->
+  <form action="/send-message" method="post" th:action="@{/send-message}" th:object="${messageRequest}">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    <input type="hidden" id="receiver_id" name="receiver_id" th:value="${studentId}"> <!-- Auto-set receiver_id from studentId -->
+
+    <div class="send-message-container">
+      <label for="content"></label>
+      <input type="text" id="content" name="content" placeholder="Type your message..." autocomplete="off">
+      <button type="submit">Send</button>
+
+    </div>
+  </form>
+
+</div>
+
+
+<!-- This hidden form will automatically refresh the page every 5 seconds -->
+<!--<form id="refreshForm" th:action="@{/chatBox}" method="get">
+  <input type="hidden" name="refresh" value="true">
+</form>-->
+
+<!-- Script to automatically submit the form every 5 seconds -->
+<script src="/js/chatBox.js"></script>
+
+<a href="/">Go back to home</a>
+<script>
+  // Wait for the document to be fully loaded
+  document.addEventListener('DOMContentLoaded', (event) => {
+    scrollToBottom();
+  });
+</script>
+</body>
+</html>

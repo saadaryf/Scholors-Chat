@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Homepage</title>
+  <link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="/viewProfile">View Profile</a></li>
+      <li><a href="#">Update Profile</a></li>
+      <li><a href="/viewAll">Chat with Other Students</a></li>
+      <li><a href="/sendMsg">Send Message with Id</a></li>
+     <!-- <li><a href="/messages">View Messages</a></li>-->
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Welcome to the Homepage!</h1>
+  <p>Here you can explore various features:</p>
+  <ul>
+    <li>View your profile</li>
+    <li>Update your profile</li>
+    <li>Show other users</li>
+    <li>Chat with a user</li>
+  </ul>
+  <p>Click <a th:href="@{/logout}">here</a> to Logout.</p>
+</main>
+
+<footer>
+  <p>&copy; 2021 Your Website. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+
+/* Style the chat container to take up the right half of the screen */
+.chat-container {
+    position: fixed; /* Make it fixed to the right */
+    top: 20px;
+    right: 20px;
+    width: calc(50% - 40px); /* Take up the right half of the screen with a small gap */
+    height: calc(100vh - 40px); /* Make it full height with a small gap from the top and bottom */
+    overflow-y: scroll; /* Always show scrollbar for consistency */
+   /* background-color: #f0f0f0;*/ /* Light background color */
+   	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align messages to the right */
+    border-radius: 15px; /* Add border radius for round corners */
+    padding: 15px; /* Add some padding */
+    margin-bottom: 20px;
+   /* *//* Add this to keep the send message container at the bottom *//*
+    justify-content: flex-end;*/
+    scroll-behavior: smooth; /* Smooth scrolling */
+
+}
+
+/* Style the message bubbles */
+.message {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    max-width: 70%; /* Adjust maximum width for the message bubble */
+    word-wrap: break-word; /* Wrap long messages */
+    background-color: #DCF8C6; /* Light green background for all messages */
+        position: relative; /* Make it a relative container for positioning */
+
+}
+
+
+/* Style sent messages */
+.sent-message {
+    align-self: flex-end; /* Align sent messages to the right */
+    background-color: lightgreen; /* Light green background for sent messages */
+    border-radius: 10px; /* Add border radius for round corners */
+    padding: 10px;
+    margin: 5px;
+    max-width: 70%; /* Adjust maximum width for the message bubble */
+    word-wrap: break-word; /* Wrap long messages */
+    transition: background-color 0.3s ease-in-out;
+}
+.sent-message:hover{
+  background-color: white; /* Change to your desired hover color */
+}
+
+/* Style received messages */
+.received-message {
+    align-self: flex-start;
+    background-color: lightblue; /* Light blue background for received messages */
+    border-radius: 10px; /* Add border radius for round corners */
+    padding: 10px;
+    margin: 5px;
+    max-width: 70%; /* Adjust maximum width for the message bubble */
+    word-wrap: break-word; /* Wrap long messages */
+    transition: background-color 0.3s ease-in-out;
+}
+.received-message:hover{
+  background-color: white; /* Change to your desired hover color */
+}
+
+
+
+/* Style message timestamps */
+.timestamp {
+    color: #777;
+    font-size: 12px;
+}
+
+/* Style the "Go back to home" link */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* New styles for the send message container and input/button */
+.send-message-container {
+    width: 100%;
+    display: flex;
+    padding: 0px; /* Add padding to separate from messages */
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    z-index: 1; /* Ensure it overlaps messages */
+}
+
+
+.send-message-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.send-message-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.send-message-container button:hover {
+    background-color: #2980b9;
+}
+
+/* Add this to your CSS file */
+
+.chat-header {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc; /* Add a horizontal line below the header */
+  padding-bottom: 5px;
+  color: black; /* Set text color to white */
+  text-align: left; /* Align the text to the left */
+}
+
+.profile-picture-container {
+    width: 25px; /* Adjust the size of the container as needed */
+    height: 25px; /* Adjust the size of the container as needed */
+    border-radius: 50%; /* Make it a circle */
+    overflow: hidden; /* Hide overflow */
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing between picture and message */
+}
+
+.profile-picture-container img {
+    width: 100%; /* Make the image fill the circular container */
+    height: auto;
+    border-radius: 50%; /* Ensure the image is also a circle */
+}
+
+
+
+
+

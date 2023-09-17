@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Sender</title>
+  <link rel="stylesheet" href="/css/sendMsg.css">
+
+
+</head>
+<body>
+<div class="container">
+  <h1>Message Sender</h1>
+  <form action="/send-message" method="post" th:action="@{/send-message}" th:object="${messageRequest}">
+    <label for="receiver_id">Receiver's ID:</label>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    <input type="text" id="receiver_id" name="receiver_id" required>
+
+    <label for="content">Message Content:</label>
+    <textarea id="content" name="content" rows="4" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+  <a href="/">Go back to home</a>
+
+</div>
+</body>
+</html>
