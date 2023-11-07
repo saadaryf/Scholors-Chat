@@ -3,29 +3,29 @@
 <head>
   <!-- ... other head elements ... -->
   <title>Messages</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="/css/ChatBox.css"> <!-- Adjust the path accordingly -->
 </head>
+
 <body>
 <h1>Inbox</h1>
-<div class="chat-header">
-  Sending Messages to <span th:text="${receiverName}"></span>
+<div class="card">
+  <div style="background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);color: white;" class="card-body">
+    Chatting with <span th:text="${receiverName}"></span>
+    <br/>
+    <a href="/" class="card-link">Go Home</a>
+  </div>
 </div>
 <div class="chat-container">
 
-  <!-- Loop through all messages and display them -->
-  <!--<div th:each="message : ${allMessages}" class="message"
-       th:class="${message.sender_name == username ? 'sent-message' : 'received-message'}">
-    <span th:text="${message.content}"></span>
-    <div class="timestamp" th:text="${message.time}"></div>
-  </div>-->
   <div th:each="message : ${allMessages}" class="message"
        th:class="${message.sender_name == username ? 'sent-message' : 'received-message'}">
     <div class="profile-picture-container">
       <img th:if="${message.sender_name != username}" src="/img/dp/john.png" alt="Receiver DP">
       <img th:if="${message.sender_name == username}" src="/img/dp/saad.png" alt="Sender DP">
     </div>
-    <!--<div class="profile-picture-container">
-    </div>-->
     <br/>
     <span th:text="${message.content}"></span>
     <br/>
@@ -37,26 +37,39 @@
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <input type="hidden" id="receiver_id" name="receiver_id" th:value="${studentId}"> <!-- Auto-set receiver_id from studentId -->
 
-    <div class="send-message-container">
-      <label for="content"></label>
-      <input type="text" id="content" name="content" placeholder="Type your message..." autocomplete="off">
-      <button type="submit">Send</button>
-
+    <!--<div class="send-message-container">-->
+<br/>
+    <div class="input-group mb-3">
+      <div class="form-floating">
+        <input type="text" name="content" class="form-control" id="floatingInputGroup1" autocomplete="off">
+        <label for="floatingInputGroup1">Message here...</label>
+      </div>
+      <button class="btn btn-outline-primary">
+        <span style="padding: .200rem .75rem; line-height: 1.5; color: blue" class="input-group-text"><i class="fas fa-paper-plane"></i></span>
+      </button>
     </div>
+     <!-- <div class="input-group mb-3">
+        <div class="form-floating">
+          <label for="content"></label>
+          <br/>
+      <input type="text" id="content" name="content" class="form-control" placeholder="Type your message..." autocomplete="off">
+
+        </div>
+        <button class="btn btn-outline-primary" id="sendButton" >
+          <span style="padding: .200rem .75rem; line-height: 1.5; color: blue" class="input-group-text"><i class="fas fa-paper-plane"></i></span>
+        </button>
+      </div>-->
+
+    <!--</div>-->
   </form>
 
 </div>
 
 
-<!-- This hidden form will automatically refresh the page every 5 seconds -->
-<!--<form id="refreshForm" th:action="@{/chatBox}" method="get">
-  <input type="hidden" name="refresh" value="true">
-</form>-->
-
 <!-- Script to automatically submit the form every 5 seconds -->
 <script src="/js/chatBox.js"></script>
 
-<a href="/">Go back to home</a>
+<!--<a href="/">Go back to home</a>-->
 <script>
   // Wait for the document to be fully loaded
   document.addEventListener('DOMContentLoaded', (event) => {

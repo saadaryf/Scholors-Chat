@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/css/signout.css">
+   <!-- <link rel="stylesheet" href="/css/signout.css">-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<p>Hello this is messaging app</p>
+<div class="card">
+    <div style="background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);color: white;" class="card-body">
+<p>Confirm Logout</p>
+    </div>
+</div>
 <form  th:action="@{/logout}" method="post">
-    <a href="/">Go back to home</a>
-    <br/>
-    <input type="submit" value="Sign Out"/>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <br/>
+        <br/>
+    <a class="btn btn-outline-info" href="/" role="button">Go back to home</a>
+    <input type="submit" class="btn btn-outline-danger" value="Sign Out"/>
+    </div>
 </form>
 </body>
 </html>

@@ -1,45 +1,301 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+body, html {
+  height: 100%;
+}
+html {
+  background-image: url("/img/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+@media (max-width: 600px) {
+  html {
+    background-size: 100% 100vh;
+  }
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
+/*body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  background-image: url("/img/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}*/
+body:not(.dark-mode) {
+  background: linear-gradient(135deg, #f1f1f1, #d8d8d8); /* Dull light gradient */
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+body:not(.dark-mode):before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 10px;
+
+.dark-mode {
+  background: #000;
+  color: white;
+  /*background-image: url("/img/dark_bg.png");*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+/* Adjust other styles for header, footer, etc. based on light and dark mode */
+
+.welcome {
+    margin: 50px auto 0;
+    margin-left: 20%; /* Move it a little to the left */
+    float: left; /* Float the div to the left */
+    transition: margin-left 0.3s ease-in-out; /* Add a transition effect for margin */
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.welcome:hover {
+    margin-left: 19%; /* Adjust the margin on hover for animation */
 }
 
-nav ul li a:hover {
-    background-color: #555;
+
+.darkbtn{
+padding:10px;
 }
 
-main {
-    padding: 20px;
+
+/*----*/
+.menu {
+  text-transform: uppercase;
+  color: black;
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: none;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+.dark-mode .menu {
+  color: white; /* Change color to white for dark mode */
+}
+.menu:hover {
+  pointer-events: all;
+}
+.label {
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: all;
+}
+.spacer {
+  display: inline-block;
+  width: 80px;
+  margin-left: 15px;
+  margin-right: 15px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+.spacer:before {
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid #ffffff;
+  height: 1px;
+  width: 0%;
+  transition: width 0.25s ease;
+  transition-delay: 0.7s;
+}
+.item {
+  position: relative;
+  display: inline-block;
+  margin-right: 30px;
+  top: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease, top 0.5s ease;
+  transition-delay: 0;
+}
+span {
+  transition: color 0.5s ease;
+}
+.item:hover span {
+  color: #ff0000;
+}
+.menu:hover .spacer:before {
+  width: 100%;
+  transition-delay: 0s;
+}
+.menu:hover .item {
+  opacity: 1;
+  top: 0px;
+}
+.item:nth-child(1) {
+  transition-delay: 0.45s;
+}
+.item:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.item:nth-child(3) {
+  transition-delay: 0.35s;
+}
+.item:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.item:nth-child(5) {
+  transition-delay: 0.25s;
+}
+.item:nth-child(6) {
+  transition-delay: 0.2s;
+}
+.item:nth-child(7) {
+  transition-delay: 0.15s;
+}
+.item:nth-child(8) {
+  transition-delay: 0.1s;
+}
+.item:nth-child(9) {
+  transition-delay: 0.05s;
+}
+.item:nth-child(10) {
+  transition-delay: 0s;
+}
+.menu:hover .item:nth-child(1) {
+  transition-delay: 0.25s;
+}
+.menu:hover .item:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.menu:hover .item:nth-child(3) {
+  transition-delay: 0.35s;
+}
+.menu:hover .item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.menu:hover .item:nth-child(5) {
+  transition-delay: 0.45s;
+}
+.menu:hover .item:nth-child(6) {
+  transition-delay: 0.5s;
+}
+.menu:hover .item:nth-child(7) {
+  transition-delay: 0.55s;
+}
+.menu:hover .item:nth-child(8) {
+  transition-delay: 0.6s;
+}
+.menu:hover .item:nth-child(9) {
+  transition-delay: 0.65s;
+}
+.menu:hover .item:nth-child(10) {
+  transition-delay: 0.7s;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+/*---2*/
+.main-nav {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 319px;
+  display: table;
+  margin: 0 auto;
+  transform: translateY(-50%);
 }
+
+.main-nav a {
+  position: relative;
+  width: 33.333%;
+  display: table-cell;
+  text-align: center;
+  color: #949494;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: 0.2s ease color;
+  font-size: 5.1em;
+}
+
+.main-nav a:before,
+.main-nav a:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.2s ease transform;
+}
+
+.main-nav a:before {
+  top: 0;
+  left: 10px;
+  width: 6px;
+  height: 6px;
+}
+
+.main-nav a:after {
+  top: 5px;
+  left: 18px;
+  width: 4px;
+  height: 4px;
+}
+
+.main-nav a:nth-child(1):before {
+  background-color: yellow;
+}
+
+.main-nav a:nth-child(1):after {
+  background-color: red;
+}
+
+.main-nav a:nth-child(2):before {
+  background-color: #00e2ff;
+}
+
+.main-nav a:nth-child(2):after {
+  background-color: #89ff00;
+}
+
+.main-nav a:nth-child(3):before {
+  background-color: purple;
+}
+
+.main-nav a:nth-child(3):after {
+  background-color: palevioletred;
+}
+
+.main-nav #indicator {
+  position: absolute;
+  left: 5%;
+  bottom: 0;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: 0.2s ease left;
+}
+
+.main-nav a:hover {
+  color: #fff;
+}
+
+.main-nav a:hover:before,
+.main-nav a:hover:after {
+  transform: scale(1);
+}
+
+.main-nav a:nth-child(1):hover ~ #indicator {
+  background: linear-gradient(130deg, yellow, red);
+}
+
+.main-nav a:nth-child(2):hover ~ #indicator {
+  left: 34%;
+  background: linear-gradient(130deg, #00e2ff, #89ff00);
+}
+
+.main-nav a:nth-child(3):hover ~ #indicator {
+  left: 70%;
+  background: linear-gradient(130deg, purple, palevioletred);
+}
+
+/*---3*/

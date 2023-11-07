@@ -23,11 +23,6 @@ public class Message {
     @Column(name = "time")
     private Date time;
 
-    @Column(name="sender_dp")
-    private String sender_dp;
-
-    @Column(name="receiver_dp")
-    private String receiver_dp;
 
     @ManyToOne
     @JoinColumn(name = "sender_id")
